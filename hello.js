@@ -30,4 +30,9 @@ server.on('request', function(request,response){
   console.log("Hello from the other side");
 });
 
+// will only be called if there is a 'close' event on the server
+server.on('close', function(){
+  console.log("Closing down the server...");
+});
+
 server.listen(8080);
