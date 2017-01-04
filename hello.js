@@ -46,3 +46,4 @@ http.createServer(function(request, response){
   request.pipe(response);
 }).listen(8080);
 // type curl -d "hello" http://localhost:8080 in the terminal to see the echo
+// this method is good when processing API (Which can be unstable)
