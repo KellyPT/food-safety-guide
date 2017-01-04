@@ -9,7 +9,7 @@ app.get('/', function(req,res){
     protocol: "https:",
     host: "data.kingcounty.gov",
     pathname: "/resource/gkhn-e8mn.json",
-    data : {"$limit" : 5}
+    data : {"$limit" : 1}
   };
 
   var dataURL = url.format(options);
