@@ -2,7 +2,8 @@
   "name": "FoodSafety",
   "version": "1",
   "dependencies": {
-    "express": "^4.14.0",
+    "ejs": "~2.5.5",
+    "express": "~4.14.0",
     "request": "~2.15.9"
   }
 }
