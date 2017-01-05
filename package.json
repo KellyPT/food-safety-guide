@@ -1,9 +1,25 @@
 {
-  "name": "FoodSafety",
-  "version": "1",
+  "name": "foodsafety",
+  "version": "1.0.0",
+  "description": "capstone project",
+  "main": "call_api.js",
   "dependencies": {
     "ejs": "~2.5.5",
     "express": "~4.14.0",
-    "request": "~2.15.9"
-  }
+    "request": "~2.79.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KellyPT/food-safety-guide.git"
+  },
+  "author": "Kelly Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KellyPT/food-safety-guide/issues"
+  },
+  "homepage": "https://github.com/KellyPT/food-safety-guide#readme"
 }
