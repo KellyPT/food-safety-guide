@@ -1,15 +1,18 @@
 <h2> API Call Success! </h2>
 
-<ul><h3>Details of the first data instance</h3>
-  <li>Name: <%= apiName %></li>
-  <li>ID: <%= apiID %></li>
-  <li>Address: <%= apiAddress %></li>
-  <li>City: <%= apiCity %></li>
-  <li>Zip Code: <%= apiZipCode %></li>
-  <li>Longitude: <%= apiLongitude %></li>
-  <li>Latitude: <%= apiLatitude %></li>
-  <li>Inspection Date: <%= apiInspectionDate %></li>
-  <li>Inspection Result: <%= apiInspectionResult %></li>
-  <li>Violation Type: <%= apiViolationType %></li>
-  <li>Violation Description: <%= apiViolationDescription %></li>
-</ul>
+  <h3>Details</h3>
+  <% results.forEach(function(result){ %>
+    <ul>
+      <li>Name: <%= result.inspection_business_name %></li>
+      <li>ID: <%= result.business_id %></li>
+      <li>Address: <%= result.address %></li>
+      <li>City: <%= result.city %></li>
+      <li>Zip Code: <%= result.zip_code %></li>
+      <li>Longitude: <%= result.longitude %></li>
+      <li>Latitude: <%= result.latitude %></li>
+      <li>Inspection Date: <%= result.inspection_date %></li>
+      <li>Inspection Result: <%= result.inspection_result %></li>
+      <li>Violation Type: <%= result.violation_type %></li>
+      <li>Violation Description: <%= result.violation_description %></li>
+    </ul>
+  <% }); %>
