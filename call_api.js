@@ -23,4 +23,4 @@ app.get('/', function(req, response){
   });
 });
 
-app.listen(8080);
+app.listen(8080, function() {console.log("Listening on 8080");});
