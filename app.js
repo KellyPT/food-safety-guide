@@ -24,7 +24,7 @@ var requestByID = function(id) {
     } else {
       var data = JSON.parse(bBody);
       if (data && data.length > 0){
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         mongoUtil.insert(data[0]);
         console.log("Inserted data for business " + id);
       } else {
@@ -36,6 +36,7 @@ var requestByID = function(id) {
 
 // this route is to refresh API call and db migration
 app.get('/refresh', function(req, response){
+  // create a clean function in mongoUtil to clean current collection;
 
   options = {
     protocol: "https:",
@@ -60,6 +61,19 @@ app.get('/refresh', function(req, response){
     }
   });
 });
+
+// how to refresh:
+// connect to the database pathway: mongod --dbpath /Users/kelly/Desktop/Ada_C6/Capstone/capstone-database/
+// [initandlisten]: waiting for connections on port 27017
+// open another terminal tab: $ mongo
+// drop the current database: db.inspections.drop();
+// check successful deletion: show dbs;
+// launch: $ node app.js
+// open another tab: $ curl -i localhost:8080/refresh
+// look at node window: connected to database
+// use database (specified in 'connect'): use testing --> switched to db testing
+// check new data inserted into db: db.inspections.find().pretty();
+
 
 // this route is to load data from db
 app.get('/', function(req, response){
