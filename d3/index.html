@@ -6,10 +6,24 @@
     <script type="text/javascript" src="d3/d3.js"></script>
   </head>
   <body>
+    <h1>Hello Kelly, this is D3!</h1>
     <script type="text/javascript">
-      d3.select("body")
+
+      // d3.csv("Food_Establishment_Inspection_Data.csv", function(error, data){
+      //   if (error) {
+      //     console.log(error);
+      //   } else {
+      //     console.log(data);
+      //   }
+      // });
+
+      var dataset = [5, 10, 15, 20, 25];
+      d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
         .append("p")
-        .text("New paragraph!");
+        .text(function(d) {return d});
+
     </script>
   </body>
 </html>
