@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <title>D3 Page Template</title>
     <script type="text/javascript" src="d3/d3.js"></script>
+    <style type="text/css">
+      div.bar {
+        display: inline-block;
+        width: 20px;
+        height: 75px;
+        background-color: teal;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello Kelly, this is D3!</h1>
@@ -18,11 +26,15 @@
       // });
 
       var dataset = [5, 10, 15, 20, 25];
-      d3.select("body").selectAll("p")
+      d3.select("body").selectAll("div")
         .data(dataset)
         .enter()
-        .append("p")
-        .text(function(d) {return d});
+        .append("div")
+        .attr("class", "bar")
+        .style("height", function(d){
+          var barHeight = d * 5;
+          return barHeight + "px";
+        });
 
     </script>
   </body>
