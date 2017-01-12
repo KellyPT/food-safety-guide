@@ -26,6 +26,11 @@
       //   }
       // });
 
+      var svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", 500)
+                  .attr("height", 500);
+
       var dataset = [];
       for (var i = 0; i < 25; i++) {
         var newNumber = Math.floor(Math.random()*30);
