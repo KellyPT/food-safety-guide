@@ -4,6 +4,7 @@
   "description": "capstone project",
   "main": "call_api.js",
   "dependencies": {
+    "angular": "^1.6.1",
     "ejs": "~2.5.5",
     "express": "~4.14.0",
     "mongodb": "~2.2.19",
