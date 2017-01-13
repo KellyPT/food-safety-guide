@@ -84,14 +84,11 @@
       //   });
 
       //making the bubble chart
-      var w2 = 700;
-      var h2 = 200;
-      var barPadding = 1;
 
       var svg2 = d3.select("body")
                   .append("svg")
-                  .attr("width", w2)
-                  .attr("height", h2);
+                  .attr("width", w)
+                  .attr("height", h);
 
       // if i use var dataset, it still renders the bubble chart but console.log will only show the dataset for bar chart. why?
       var dataset2 = [ 5, 10, 15, 20, 25 ];
@@ -132,15 +129,24 @@
                 [85, 21],
                 [220, 88]
               ];
+
+      var xScale = d3.scaleLinear()
+                     .domain([0, 20 + d3.max(dataset3, function(d) { return d[0]; })])
+                     .range([0, w]);
+
+      var yScale = d3.scaleLinear()
+                    .domain([0, 20 + d3.max(dataset3, function(d) { return d[1]; })])
+                    .range([0, h]);
+
       svg3.selectAll("circle")
           .data(dataset3)
           .enter()
           .append("circle")
           .attr("cx", function(d){
-            return d[0];
+            return xScale(d[0]);
           })
           .attr("cy", function(d){
-            return d[1];
+            return yScale(d[1]);
           })
           .attr("r", 5);
 
@@ -152,10 +158,10 @@
             return "(" + d[0] + ", " + d[1] + ")";
           })
           .attr("x", function(d){
-            return d[0];
+            return xScale(d[0]);
           })
           .attr("y", function(d){
-            return d[1];
+            return yScale(d[1]);
           })
           .attr("font-family", "sans-serif")
           .attr("font-size", "11px")
