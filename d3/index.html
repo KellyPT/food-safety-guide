@@ -12,6 +12,16 @@
         background-color: teal;
         margin-right: 2px;
       }
+
+      /*handle hover with color transition*/
+      rect:hover {
+        fill: orange;
+        -moz-transition: all 0.05s;
+        -o-transition: all 0.05s;
+        -webkit-transition: all 0.05s;
+        transition: all 0.05s;
+      }
+
     </style>
   </head>
   <body>
@@ -62,7 +72,10 @@
     			.attr("y", function(d) { return h - yScale(d); })
     			.attr("width", xScale.bandwidth())
     			.attr("height", function(d) { return yScale(d); })
-          .attr("fill", function(d){ return "rgb(0, 0, " + (d * 10) + ")";});
+          .attr("fill", function(d){ return "rgb(0, 0, " + (d * 10) + ")";})
+          .on("click", function(d){
+            console.log(d);
+          })
 
       svg.selectAll("text")
        .data(dataset)
