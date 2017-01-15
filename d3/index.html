@@ -14,13 +14,13 @@
       }
 
       /*handle hover with color transition*/
-      /*rect:hover {
+      rect:hover {
         fill: orange;
         -moz-transition: all 0.05s;
         -o-transition: all 0.05s;
         -webkit-transition: all 0.05s;
         transition: all 0.05s;
-      }*/
+      }
 
     </style>
   </head>
@@ -74,18 +74,19 @@
     			.attr("height", function(d) { return yScale(d); })
           .attr("fill", function(d){ return "rgb(0, 0, " + (d * 10) + ")";})
           .on("click", function(d){
-            console.log(d);
-            })
-          .on("mouseover", function(){
-            d3.select(this)
-              .attr("fill", "orange");
-            })
-          .on("mouseout", function(d){
-            d3.select(this)
-              .transition()
-              .duration(250)
-              .attr("fill", "rgb(0, 0, " + (d * 10) + ")")
-          })
+              sortBars();
+              // sortTexts();
+            });
+          // .on("mouseover", function(){
+          //   d3.select(this)
+          //     .attr("fill", "orange");
+          //   })
+          // .on("mouseout", function(d){
+          //   d3.select(this)
+          //     .transition()
+          //     .duration(250)
+          //     .attr("fill", "rgb(0, 0, " + (d * 10) + ")")
+          //   });
 
 
       svg.selectAll("text")
@@ -104,8 +105,8 @@
         .attr("font-family", "sans-serif")
         .attr("font-size", "11px")
         .attr("fill", "white")
-        .attr("text-anchor", "middle")
-        .style("pointer-events", "none");
+        .attr("text-anchor", "middle");
+        // .style("pointer-events", "none")
 
       d3.select("p")
         .on("click", function() {
@@ -143,9 +144,41 @@
                     });
             });
 
+      var sortOrder = false;
 
+      var sortBars = function() {
+        sortOrder = !sortOrder;
+        svg.selectAll("rect")
+           .sort(function(a, b) {
+              if (sortOrder) {
+                return d3.ascending(a, b);
+              } else {
+                return d3.descending(a, b);
+              }
+           })
+           .transition()
+           .duration(1000)
+           .attr("x", function(d, i) {
+                 return xScale(i);
+           });
 
-
+       svg.selectAll("text")
+          .sort(function(a, b) {
+             if (sortOrder) {
+               return d3.ascending(a, b);
+             } else {
+               return d3.descending(a, b);
+             }
+          })
+          .transition()
+          .duration(1000)
+          .attr("x", function(d, i) {
+               return xScale(i) + xScale.bandwidth() / 2;
+             })
+          .attr("y", function(d) {
+               return h - yScale(d) + 14;
+             })
+      };
 
       // var dataset = [];
       // for (var i = 0; i < 25; i++) {
