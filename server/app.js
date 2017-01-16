@@ -20,7 +20,7 @@ var requestByID = function(id) {
 
   request(bizDataUrl, function(bErr, bRes, bBody){
     if (bErr) {
-      console.log("Failed bv eto load data for business " + id + " from API");
+      console.log("Failed to load data for business " + id + " from API");
     } else {
       var data = JSON.parse(bBody);
       if (data && data.length > 0){
