@@ -7,6 +7,11 @@ var insert = function(doc){
   _db.collection("inspections").save(doc);
 };
 
+var clearDB = function(){
+  _db.collection("inspections").drop();
+  console.log("clear successfully");
+};
+
 var connect = function() {
   client.connect('mongodb://localhost:27017/testing', function(err, db){
     if (err) {
@@ -28,3 +33,4 @@ var inspections = function(){
 exports.connect = connect;
 exports.inspections = inspections;
 exports.insert = insert;
+exports.clearDB = clearDB;

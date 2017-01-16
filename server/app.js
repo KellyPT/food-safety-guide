@@ -7,13 +7,13 @@ var app = express();
 var mongoUtil = require('./mongoUtil');
 mongoUtil.connect();
 
-// create a separate query based on business ID to avoid closures in JavaScript
+// helper function: create a separate query based on business ID to avoid closures in JavaScript
 var requestByID = function(id) {
   bizOptions = {
     protocol: "https:",
     host: "data.kingcounty.gov",
     pathname: "/resource/gkhn-e8mn.json",
-    search: "business_id=" + id + "&$order=inspection_date DESC&$limit=1"
+    search: "business_id=" + id + "&$order=inspection_date DESC, violation_points DESC&$limit=1"
   };
 
   var bizDataUrl = url.format(bizOptions);
@@ -37,12 +37,13 @@ var requestByID = function(id) {
 // this route is to refresh API call and db migration
 app.get('/refresh', function(req, response){
   // create a clean function in mongoUtil to clean current collection;
+  mongoUtil.clearDB();
 
   options = {
     protocol: "https:",
     host: "data.kingcounty.gov",
     pathname: "/resource/gkhn-e8mn.json",
-    search: "$query=SELECT business_id, inspection_date WHERE city IN ('Seattle', 'SEATTLE') |> SELECT business_id, MAX(inspection_date) AS latest GROUP BY business_id LIMIT 20"
+    search: "$query=SELECT business_id, inspection_date WHERE city IN ('Seattle', 'SEATTLE') |> SELECT business_id, MAX(inspection_date) AS latest GROUP BY business_id"
   };
 
   var dataURL = url.format(options);
@@ -77,7 +78,7 @@ app.get('/refresh', function(req, response){
 
 // this route is to load data from db
 app.get('/', function(req, response){
-  var inspections = mongoUtil.inspections();
+  var inspections = mongoUtil.inspections().pretty();
 });
 
 // var dataURL = url.format(options);
