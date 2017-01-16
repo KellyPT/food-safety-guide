@@ -9,7 +9,7 @@ var insert = function(doc){
 
 var clearDB = function(){
   _db.collection("inspections").drop();
-  console.log("clear successfully");
+  console.log("Cleaned old data successfully");
 };
 
 var connect = function() {
