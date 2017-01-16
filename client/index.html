@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html ng-app="foodsafety">
-  <head>
-    <meta charset="utf-8">
-    <title>Food Safety</title>
-    <link rel="stylesheet" type="text/css" href="map/main.css">
-  </head>
-  <body>
-    <h1>Safe Food in Seattle</h1>
-    <div class="safe">Safe/Unsafe filter</div>
-    <div class="size">Size filter</div>
-    <div class="zipcode">Zip Code filter</div>
-    <div class="map container">
-      <h2>D3 Map</h2>
-      <div id="wa-chart"></div>
+<head>
+  <meta charset="utf-8">
+  <title>Food Safety</title>
+  <!-- <link rel="stylesheet" type="text/css" href="map/main.css"> -->
+  <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
+  <script src="./src/app.js"></script>
+</head>
+<body>
+  <h1>Safe Food in Seattle</h1>
+  <form name="FilteringForm" ng-controller="FilterController">
+    <div>
+      <h3>Safe or Unsafe</h3>
+      <label>
+        <input type="radio" ng-model="condition.safeChoice" value="safe">
+        Safe
+      </label><br/>
+      <label>
+        <input type="radio" ng-model="condition.safeChoice" value="unsafe">
+        Unsafe
+      </label><br/>
     </div>
-    <div class="list">Final Lists of Restaurant</div>
 
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
-    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <div class="Type">
+    <h3>Type filter</h3>
+      <select name="typeChoice" id="typeChoice" ng-model="condition.typeChoice">
+        <option value=""></option>
+        <option value="bakery">Bakery (no seating)</option>
+        <option value="bb">Bed &amp; Breakfast</option>
+        <option value="caterer">Caterer</option>
+      </select><br/>
+    </div>
 
-    <script type="text/javascript" src="map/main.js"></script>
 
-    <!-- <script src="./src/app.js"></script> -->
-  </body>
+  <div class="zipcode">Zip Code filter</div>
+
+  <!-- <div class="map container">
+  <h2>D3 Map</h2>
+  <div id="wa-chart"></div>
+</div> -->
+
+<div class="list">Final Lists of Restaurant</div>
+<div class="result">
+  <tt>condition = {{condition | json}}</tt><br/>
+</div>
+</form>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+<!-- <script type="text/javascript" src="map/main.js"></script> -->
+
+</body>
 </html>
