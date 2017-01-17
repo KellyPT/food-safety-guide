@@ -12,28 +12,61 @@
   <form name="FilteringForm" ng-controller="FilterController">
     <div>
       <h3>Safe or Unsafe</h3>
-      <label>
-        <input type="radio" ng-model="condition.safeChoice" value="safe">
-        Safe
-      </label><br/>
-      <label>
-        <input type="radio" ng-model="condition.safeChoice" value="unsafe">
-        Unsafe
-      </label><br/>
+      <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice">
+        <option value=""></option>
+        <option value="safe">Safe</option>
+        <option value="unsafe">Unsafe</option>
+      </select><br/>
     </div>
 
     <div class="Type">
-    <h3>Type filter</h3>
-      <select name="typeChoice" id="typeChoice" ng-model="condition.typeChoice">
+      <h3>Type filter</h3>
+      <select name="type" id="type" ng-model="condition.type">
         <option value=""></option>
-        <option value="bakery">Bakery (no seating)</option>
-        <option value="bb">Bed &amp; Breakfast</option>
-        <option value="caterer">Caterer</option>
+        <option value="Bakery">Bakery (no seating)</option>
+        <option value="Bed">Bed &amp; Breakfast</option>
+        <option value="Caterer">Caterer</option>
       </select><br/>
     </div>
 
 
-  <div class="zipcode">Zip Code filter</div>
+  <div class="zipcode">
+    <h3>Zip Code filter</h3>
+    <select name="zipcode" id="zipcode" ng-model="condition.zipcode">
+      <option value=""></option>
+      <option value="98101">98101</option>
+      <option value="98102">98102</option>
+      <option value="98103">98103</option>
+      <option value="98104">98104</option>
+      <option value="98105">98105</option>
+      <option value="98106">98106</option>
+      <option value="98107">98107</option>
+      <option value="98108">98108</option>
+      <option value="98109">98109</option>
+      <option value="98112">98112</option>
+      <option value="98115">98115</option>
+      <option value="98116">98116</option>
+      <option value="98117">98117</option>
+      <option value="98118">98118</option>
+      <option value="98119">98119</option>
+      <option value="98121">98121</option>
+      <option value="98122">98122</option>
+      <option value="98125">98125</option>
+      <option value="98126">98126</option>
+      <option value="98133">98133</option>
+      <option value="98134">98134</option>
+      <option value="98136">98136</option>
+      <option value="98144">98144</option>
+      <option value="98146">98146</option>
+      <option value="98154">98154</option>
+      <option value="98164">98164</option>
+      <option value="98174">98174</option>
+      <option value="98177">98177</option>
+      <option value="98178">98178</option>
+      <option value="98195">98195</option>
+      <option value="98198">98198</option>
+    </select><br/>
+  </div>
 
   <!-- <div class="map container">
   <h2>D3 Map</h2>
