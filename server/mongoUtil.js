@@ -12,6 +12,17 @@ var clearDB = function(){
   console.log("Cleaned old data successfully");
 };
 
+var search = function(callback){
+  var inspections = _db.collection("inspections");
+  var query = {
+    violation_points: {$gt: "0"},
+    zip_code: "98105",
+    description: /Profit/
+  };
+
+  inspections.find(query).toArray(callback);
+};
+
 var connect = function() {
   client.connect('mongodb://localhost:27017/testing', function(err, db){
     if (err) {
@@ -34,3 +45,4 @@ exports.connect = connect;
 exports.inspections = inspections;
 exports.insert = insert;
 exports.clearDB = clearDB;
+exports.search = search;

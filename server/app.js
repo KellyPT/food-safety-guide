@@ -33,13 +33,13 @@ var requestByID = function(id) {
   });
 };
 
-app.use(function(req, res, next){
-  res.setTimeout(600000, function(){
-    console.log("Request has timed out...");
-    res.sendStatus(408);
-  });
-  next();
-});
+// app.use(function(req, res, next){
+//   res.setTimeout(600000, function(){
+//     console.log("Request has timed out...");
+//     res.sendStatus(408);
+//   });
+//   next();
+// });
 
 // this route is to refresh API call and db migration
 app.get('/refresh', function(req, response){
@@ -95,10 +95,23 @@ app.get('/refresh', function(req, response){
 // use database (specified in 'connect'): use testing --> switched to db testing
 // check new data inserted into db: db.inspections.find().pretty();
 
-
 // this route is to load data from db
+app.get('/search', function(req, response){
+  console.log("request made for DB query");
+  mongoUtil.search(function(err, results){
+    if (err){
+      console.log(err);
+      return response(err);
+    }
+
+    console.log(results);
+    return response.json(results);
+  });
+});
+
+
 app.get('/', function(req, response){
-  var inspections = mongoUtil.inspections().pretty();
+
 });
 
 // var dataURL = url.format(options);
