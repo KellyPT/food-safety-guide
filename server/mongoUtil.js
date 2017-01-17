@@ -33,6 +33,9 @@ var search = function(paramSet, callback){
 
   if (paramSet.safeChoice)
   {
+    // if safeChoice is selected as safe
+    // violation_points must be 0,
+    // if it is unsafe, violation_points must > 0
     if (paramSet.safeChoice == "safe")
     {
       query.violation_points = "0";
@@ -42,11 +45,16 @@ var search = function(paramSet, callback){
     }
   }
 
+  // regular expression is needed for businessType
+  // in order to forge a LIKE filter condition on description field
   if (paramSet.businessType)
   {
     query.description = new RegExp(paramSet.businessType);
   }
 
+  // execute the query in inspections collection
+  // then convert the results to an array
+  // and call the provided callback function
   inspections.find(query).toArray(callback);
 };
 

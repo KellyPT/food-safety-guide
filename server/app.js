@@ -98,12 +98,16 @@ app.get('/refresh', function(req, response){
 // this route is to load data from db
 app.get('/search', function(req, response){
   console.log("request made for DB query");
+
+  // pass the request url parameters to mongoUtil search
+  // and define a callback function to handle results
   mongoUtil.search(req.query, function(err, results){
     if (err){
       console.log(err);
       return response(err);
     }
 
+    // log the results and put them in json response
     console.log(results);
     return response.json(results);
   });
