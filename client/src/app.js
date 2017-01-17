@@ -7,7 +7,7 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
     zipcode: '',
   };
 
-  $scope.dbUrl = '/localhost:8080/search';
+  $scope.dbUrl = 'http://localhost:8080/search';
   $scope.data = [];
 
   $scope.$watch('condition', function onConditionChange(newValue, oldValue, scope){
@@ -28,7 +28,7 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
       params += "&zipcode=" + newValue.zipcode;
     }
 
-    var url = "/localhost:8080/search";
+    var url = "http://localhost:8080/search";
     if (params.length > 0)
     {
       url += "?" + params.slice(1);
@@ -37,9 +37,13 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
     $scope.dbUrl = url;
   }, true);
 
-  // $scope.$watch('dbUrl', function onDbUrlChange(newValue, oldValue){
-  //   $http.get($scope.dbUrl).success(function (data){
-  //     $scope.data = data.ResponseData;
-  //   });
-  // });
+  $scope.$watch('dbUrl', function onDbUrlChange(newValue, oldValue){
+    $http.get($scope.dbUrl).then(function success(response){
+      $scope.data = response.data;
+      console.log("Finished loading data");
+    }, function error(response){
+      $scope.data = [];
+      console.log("Error in making DB call at " + $scope.dbUrl);
+    });
+  }, true);
 }]);
