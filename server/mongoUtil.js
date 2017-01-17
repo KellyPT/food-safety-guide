@@ -12,13 +12,40 @@ var clearDB = function(){
   console.log("Cleaned old data successfully");
 };
 
-var search = function(callback){
+var search = function(paramSet, callback){
   var inspections = _db.collection("inspections");
-  var query = {
-    violation_points: {$gt: "0"},
-    zip_code: "98105",
-    description: /Profit/
-  };
+
+  // hard-coded query parameters
+  // keep this for debugging purpose
+  // var query = {
+  //   violation_points: {$gt: "0"},
+  //   zip_code: "98105",
+  //   description: /Profit/
+  // };
+
+  // dynamically generate the query options
+  // from url query parameter set
+  var query = {};
+  if (paramSet.zipcode)
+  {
+    query.zip_code = paramSet.zipcode;
+  }
+
+  if (paramSet.safeChoice)
+  {
+    if (paramSet.safeChoice == "safe")
+    {
+      query.violation_points = "0";
+    }
+    else if (paramSet.safeChoice == "unsafe") {
+      query.violation_points = {$gt: "0"};
+    }
+  }
+
+  if (paramSet.businessType)
+  {
+    query.description = new RegExp(paramSet.businessType);
+  }
 
   inspections.find(query).toArray(callback);
 };

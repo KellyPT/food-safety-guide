@@ -98,7 +98,7 @@ app.get('/refresh', function(req, response){
 // this route is to load data from db
 app.get('/search', function(req, response){
   console.log("request made for DB query");
-  mongoUtil.search(function(err, results){
+  mongoUtil.search(req.query, function(err, results){
     if (err){
       console.log(err);
       return response(err);
