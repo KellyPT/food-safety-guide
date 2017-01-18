@@ -29,7 +29,7 @@
         <option value="Seating 13-50">Eatery 13-50 seats</option>
         <option value="Seating 51-150">Eatery 51-150 seats</option>
         <option value="Seating 151-250">Eatery 151-250 seats</option>
-        <option value="Seating > 250">Eatery > 250250 seats</option>
+        <option value="Seating > 250">Eatery > 250 seats</option>
         <option value="Grocery">Grocery Store (no seating)</option>
         <option value="Limited">Limited Food Services</option>
         <option value="Meat">Meat/Sea Food Supermarket</option>
@@ -41,55 +41,82 @@
     </div>
 
 
-  <div class="zipcode">
-    <h3>Zip Code filter</h3>
-    <select name="zipcode" id="zipcode" ng-model="condition.zipcode">
-      <option value=""></option>
-      <option value="98101">98101</option>
-      <option value="98102">98102</option>
-      <option value="98103">98103</option>
-      <option value="98104">98104</option>
-      <option value="98105">98105</option>
-      <option value="98106">98106</option>
-      <option value="98107">98107</option>
-      <option value="98108">98108</option>
-      <option value="98109">98109</option>
-      <option value="98112">98112</option>
-      <option value="98115">98115</option>
-      <option value="98116">98116</option>
-      <option value="98117">98117</option>
-      <option value="98118">98118</option>
-      <option value="98119">98119</option>
-      <option value="98121">98121</option>
-      <option value="98122">98122</option>
-      <option value="98125">98125</option>
-      <option value="98126">98126</option>
-      <option value="98133">98133</option>
-      <option value="98134">98134</option>
-      <option value="98136">98136</option>
-      <option value="98144">98144</option>
-      <option value="98146">98146</option>
-      <option value="98154">98154</option>
-      <option value="98164">98164</option>
-      <option value="98174">98174</option>
-      <option value="98177">98177</option>
-      <option value="98178">98178</option>
-      <option value="98195">98195</option>
-      <option value="98198">98198</option>
-    </select><br/>
+    <div class="zipcode">
+      <h3>Zip Code filter</h3>
+      <select name="zipcode" id="zipcode" ng-model="condition.zipcode">
+        <option value=""></option>
+        <option value="98101">98101</option>
+        <option value="98102">98102</option>
+        <option value="98103">98103</option>
+        <option value="98104">98104</option>
+        <option value="98105">98105</option>
+        <option value="98106">98106</option>
+        <option value="98107">98107</option>
+        <option value="98108">98108</option>
+        <option value="98109">98109</option>
+        <option value="98112">98112</option>
+        <option value="98115">98115</option>
+        <option value="98116">98116</option>
+        <option value="98117">98117</option>
+        <option value="98118">98118</option>
+        <option value="98119">98119</option>
+        <option value="98121">98121</option>
+        <option value="98122">98122</option>
+        <option value="98125">98125</option>
+        <option value="98126">98126</option>
+        <option value="98133">98133</option>
+        <option value="98134">98134</option>
+        <option value="98136">98136</option>
+        <option value="98144">98144</option>
+        <option value="98146">98146</option>
+        <option value="98154">98154</option>
+        <option value="98164">98164</option>
+        <option value="98174">98174</option>
+        <option value="98177">98177</option>
+        <option value="98178">98178</option>
+        <option value="98195">98195</option>
+        <option value="98198">98198</option>
+      </select><br/>
+    </div>
+
+    <!-- <div class="map container">
+    <h2>D3 Map</h2>
+    <div id="wa-chart"></div>
+  </div> -->
+
+  <div class="list">Final Lists of Restaurant</div>
+  <div class="result">
+    <tt>condition = {{condition | json}}</tt><br/>
+    <tt>dbUrl = {{dbUrl}}</tt><br/>
+    <tt>data count = {{data.length}}</tt><br/>
+
+    <scrollable-table watch="data">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th sortable-header col="name">Name</th>
+            <th sortable-header col="address">Address</th>
+            <th sortable-header col="city">City</th>
+            <th sortable-header col="zipcode">Zip Code</th>
+            <th sortable-header col="phone">Phone</th>
+            <th sortable-header col="violation">Violation Points</th>
+            <th sortable-header col="date">Inspection Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="d in data">
+            <td>{{ d.name }}</td>
+            <td>{{ d.address }}</td>
+            <td>{{ d.city}}</td>
+            <td>{{ d.zip_code }}</td>
+            <td>{{ d.phone }}</td>
+            <td>{{ d.violation_points }}</td>
+            <td>{{ d.inspection_date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </scrollable-table>
   </div>
-
-  <!-- <div class="map container">
-  <h2>D3 Map</h2>
-  <div id="wa-chart"></div>
-</div> -->
-
-<div class="list">Final Lists of Restaurant</div>
-<div class="result">
-  <tt>condition = {{condition | json}}</tt><br/>
-  <tt>dbUrl = {{dbUrl}}</tt><br/>
-  <tt>data count = {{data.length}}</tt><br/>
-</div>
 </form>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
