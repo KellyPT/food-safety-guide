@@ -89,18 +89,60 @@
     <tt>condition = {{condition | json}}</tt><br/>
     <tt>dbUrl = {{dbUrl}}</tt><br/>
     <tt>data count = {{data.length}}</tt><br/>
+  </div>
+
+  <div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ searchName }}</p>
+  </div>
 
     <scrollable-table watch="data">
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th sortable-header col="name">Name</th>
-            <th sortable-header col="address">Address</th>
-            <th sortable-header col="city">City</th>
-            <th sortable-header col="zipcode">Zip Code</th>
-            <th sortable-header col="phone">Phone</th>
-            <th sortable-header col="violation">Violation Points</th>
-            <th sortable-header col="date">Inspection Date</th>
+            <th sortable-header col="name">
+              <a href="#" ng-click="sortType = 'name'">
+                Name
+                <span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
+            <th sortable-header col="address">
+              <a href="#" ng-click="sortType = 'address'">
+                Address
+                <span ng-show="sortType == 'address'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
+            <th sortable-header col="city">
+              <a href="#" ng-click="sortType = 'city'">
+                City
+                <span ng-show="sortType == 'city'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
+            <th sortable-header col="zipcode">
+              <a href="#" ng-click="sortType = 'zip_code'">
+                Zip Code
+                <span ng-show="sortType == 'zip_code'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
+            <th sortable-header col="phone">
+              <a href="#" ng-click="sortType = 'phone'">
+                Phone
+                <span ng-show="sortType == 'phone'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
+            <th sortable-header col="violation">
+              <a href="#" ng-click="sortType = 'violation_points'">
+                Violation Points
+                <span ng-show="sortType == 'violation_points'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
+            <th sortable-header col="date">
+              <a href="#" ng-click="sortType = 'inspection_date'">
+                Inspection Date
+                <span ng-show="sortType == 'inspection_date'" class="fa fa-caret-down"></span>
+              </a>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -116,7 +158,7 @@
         </tbody>
       </table>
     </scrollable-table>
-  </div>
+
 </form>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
