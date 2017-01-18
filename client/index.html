@@ -104,7 +104,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="d in data">
+          <tr ng-repeat="d in data | orderBy:sortType:sortReverse">
             <td>{{ d.name }}</td>
             <td>{{ d.address }}</td>
             <td>{{ d.city}}</td>

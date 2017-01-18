@@ -7,6 +7,10 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
     zipcode: '',
   };
 
+  $scope.sortType = 'name'; // set the default sort type
+  $scope.sortReverse = false; // set the default sort order
+  $scope.searchName = ''; // set the default search/filter term
+
   $scope.dbUrl = 'http://localhost:8080/search';
   $scope.data = [];
 
