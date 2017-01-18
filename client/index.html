@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Food Safety</title>
   <!-- <link rel="stylesheet" type="text/css" href="map/main.css"> -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
   <script src="./src/app.js"></script>
 </head>
@@ -102,45 +104,52 @@
         <thead>
           <tr>
             <th sortable-header col="name">
-              <a href="#" ng-click="sortType = 'name'">
+              <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
                 Name
-                <span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
             <th sortable-header col="address">
-              <a href="#" ng-click="sortType = 'address'">
+              <a href="#" ng-click="sortType = 'address'; sortReverse = !sortReverse">
                 Address
-                <span ng-show="sortType == 'address'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'address' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'address' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
             <th sortable-header col="city">
-              <a href="#" ng-click="sortType = 'city'">
+              <a href="#" ng-click="sortType = 'city'; sortReverse = !sortReverse">
                 City
-                <span ng-show="sortType == 'city'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'city' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'city' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
             <th sortable-header col="zipcode">
-              <a href="#" ng-click="sortType = 'zip_code'">
+              <a href="#" ng-click="sortType = 'zip_code'; sortReverse = !sortReverse">
                 Zip Code
-                <span ng-show="sortType == 'zip_code'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'zip_code' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'zip_code' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
             <th sortable-header col="phone">
-              <a href="#" ng-click="sortType = 'phone'">
+              <a href="#" ng-click="sortType = 'phone'; sortReverse = !sortReverse">
                 Phone
-                <span ng-show="sortType == 'phone'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'phone' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'phone' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
             <th sortable-header col="violation">
-              <a href="#" ng-click="sortType = 'violation_points'">
+              <a href="#" ng-click="sortType = 'violation_points'; sortReverse = !sortReverse">
                 Violation Points
-                <span ng-show="sortType == 'violation_points'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'violation_points' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'violation_points' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
             <th sortable-header col="date">
-              <a href="#" ng-click="sortType = 'inspection_date'">
+              <a href="#" ng-click="sortType = 'inspection_date'; sortReverse = !sortReverse">
                 Inspection Date
-                <span ng-show="sortType == 'inspection_date'" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'inspection_date' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'inspection_date' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
           </tr>
