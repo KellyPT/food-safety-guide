@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Food Safety</title>
-  <!-- <link rel="stylesheet" type="text/css" href="map/main.css"> -->
+  <link rel="stylesheet" type="text/css" href="map/main.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <script src="http://code.angularjs.org/snapshot/angular.min.js"></script>
@@ -12,10 +12,11 @@
 <body>
   <h1>Safe Food in Seattle</h1>
   <form name="FilteringForm" ng-controller="FilterController">
+    <button type="button" ng-click="reset()">Reset</button>
     <div>
       <h3>Safe or Unsafe</h3>
       <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice">
-        <option value=""></option>
+        <option value="">All</option>
         <option value="safe">Safe</option>
         <option value="unsafe">Unsafe</option>
       </select><br/>
@@ -24,7 +25,7 @@
     <div class="businessType">
       <h3>Type filter</h3>
       <select name="businessType" id="businessType" ng-model="condition.businessType">
-        <option value=""></option>
+        <option value="">All</option>
         <option value="Bakery">Bakery (no seating)</option>
         <option value="Bed">Bed &amp; Breakfast</option>
         <option value="Seating 0-12">Eatery 0-12 seats</option>
@@ -46,7 +47,7 @@
     <div class="zipcode">
       <h3>Zip Code filter</h3>
       <select name="zipcode" id="zipcode" ng-model="condition.zipcode">
-        <option value=""></option>
+        <option value="">All</option>
         <option value="98101">98101</option>
         <option value="98102">98102</option>
         <option value="98103">98103</option>
@@ -81,7 +82,7 @@
       </select><br/>
     </div>
 
-    <!-- <div class="map container">
+  <!-- <div class="map container">
     <h2>D3 Map</h2>
     <div id="wa-chart"></div>
   </div> -->
@@ -178,7 +179,7 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 
-<!-- <script type="text/javascript" src="map/main.js"></script> -->
+<script type="text/javascript" src="map/main.js"></script>
 
 </body>
 </html>

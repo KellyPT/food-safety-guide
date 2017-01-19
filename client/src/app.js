@@ -27,6 +27,11 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
 
   $scope.dbUrl = 'http://localhost:8080/search';
   $scope.data = [];
+  $scope.reset = function(){
+    $scope.condition.safeChoice = '';
+    $scope.condition.businessType = '';
+    $scope.condition.zipcode = '';
+  };
 
   $scope.$watch('condition', function onConditionChange(newValue, oldValue, scope){
     console.log("condition: ", newValue.zipcode);

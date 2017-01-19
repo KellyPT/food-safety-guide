@@ -62,7 +62,7 @@ var connect = function() {
   client.connect('mongodb://localhost:27017/testing', function(err, db){
     if (err) {
       console.log("Error connecting to Mongo - check mongod connection");
-      process.exit(1); // exit node when fail to conne
+      process.exit(1); // exit node when fail to connect
     }
     _db = db;
     console.log("Connected to database");
