@@ -152,17 +152,21 @@
               <span ng-show="sortType == 'inspection_date' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </th>
+            <th sortable-header col="id">
+              Id
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="d in data | orderBy:sortType:sortReverse">
+          <tr ng-repeat="d in data | orderBy : sortType : sortReverse : customComparator">
             <td>{{ d.name }}</td>
             <td>{{ d.address }}</td>
             <td>{{ d.city}}</td>
             <td>{{ d.zip_code }}</td>
             <td>{{ d.phone }}</td>
             <td>{{ d.violation_points }}</td>
-            <td>{{ d.inspection_date }}</td>
+            <td>{{ formatDate(d.inspection_date) }}</td>
+            <td>{{ d.business_id }}</td>
           </tr>
         </tbody>
       </table>
