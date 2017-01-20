@@ -53,7 +53,7 @@
         .data(WA)
       .enter().append("path")
         .attr("d", path)
-        .attr("fill", "#ddd")
+        .attr("fill", "#ddd");
         // .attr("stroke", "#777")
         // .attr("stroke-width", "1px");
 
