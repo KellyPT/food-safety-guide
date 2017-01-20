@@ -1,7 +1,7 @@
 (function chart() {
 
-  var width = 500,
-      height = 700,
+  var width = 300,
+      height = 500,
       centered;
 
   var rateById = d3.map();
