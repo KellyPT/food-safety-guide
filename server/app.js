@@ -1,3 +1,5 @@
+require('dotenv').config({path: '../.env'});
+
 var request = require('requestretry');
 var url = require('url');
 
@@ -5,6 +7,7 @@ var express = require('express');
 var app = express();
 
 var mongoUtil = require('./mongoUtil');
+
 mongoUtil.connect();
 
 // helper function: create a separate query based on business ID to avoid closures in JavaScript
@@ -13,7 +16,7 @@ var requestByID = function(id) {
     protocol: "https:",
     host: "data.kingcounty.gov",
     pathname: "/resource/gkhn-e8mn.json",
-    search: "business_id=" + id + "&$order=inspection_date DESC, violation_points DESC&$limit=1&$$app_token=KoBaqYEvMOFcYBeqsWVTSyW1l"
+    search: "business_id=" + id + "&$order=inspection_date DESC, violation_points DESC&$limit=1&$$app_token=" + process.env.APP_TOKEN
   };
 
   var bizDataUrl = url.format(bizOptions);
@@ -42,7 +45,7 @@ app.get('/refresh', function(req, response){
     protocol: "https:",
     host: "data.kingcounty.gov",
     pathname: "/resource/gkhn-e8mn.json",
-    search: "$query=SELECT business_id WHERE city IN ('Seattle', 'SEATTLE') AND inspection_date IS NOT NULL AND inspection_date >= '2016-06-01'|> SELECT business_id GROUP BY business_id LIMIT 10000&$$app_token=KoBaqYEvMOFcYBeqsWVTSyW1l"
+    search: "$query=SELECT business_id WHERE city IN ('Seattle', 'SEATTLE') AND inspection_date IS NOT NULL AND inspection_date >= '2016-06-01'|> SELECT business_id GROUP BY business_id LIMIT 10000&$$app_token=" + process.env.APP_TOKEN
   };
 
   var dataURL = url.format(options);

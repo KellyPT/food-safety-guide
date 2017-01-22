@@ -1,3 +1,4 @@
+require('dotenv').config({path: '../.env'});
 
 var mongo = require('mongodb');
 var client = mongo.MongoClient;
@@ -59,7 +60,8 @@ var search = function(paramSet, callback){
 };
 
 var connect = function() {
-  client.connect('mongodb://localhost:27017/testing', function(err, db){
+  // client.connect('mongodb://localhost:27017/testing', function(err, db){
+  client.connect('mongodb://' + process.env.MONGOD_USERNAME + ':' + process.env.MONGOD_PASSWORD + '@' + process.env.HOST_NAME + ':' + process.env.PORT + '/' + process.env.DB_NAME, function(err, db){
     if (err) {
       console.log("Error connecting to Mongo - check mongod connection");
       process.exit(1); // exit node when fail to connect
