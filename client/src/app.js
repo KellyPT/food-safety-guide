@@ -7,9 +7,9 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
     zipcode: '',
   };
 
-  $scope.sortType = 'name'; // set the default sort type
-  $scope.sortReverse = false; // set the default sort order
-  $scope.searchName = ''; // set the default search/filter term
+  // $scope.sortType = 'name'; // set the default sort type
+  // $scope.sortReverse = false; // set the default sort order
+  // $scope.searchName = ''; // set the default search/filter term
 
   // $scope.customComparator = function(v1, v2){
   //   if ($scope.sortType == 'violation_points'){
@@ -19,6 +19,20 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
   //     return (v1.value < v2.value ? -1 : 1);
   //   }
   // };
+
+  $scope.violationComparator = function(v1, v2){
+      // console.log(v1);
+
+      if (v1.violation_points === null){
+        return -1;
+      }
+
+      if (v2.violation_points === null){
+        return 1;
+      }
+
+      return (parseInt(v1.violation_points) < parseInt(v2.violation_points) ? -1 : 1);
+  };
 
   $scope.formatDate = function (datetimeString){
     var d = new Date(datetimeString);
