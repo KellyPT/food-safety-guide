@@ -1,24 +1,15 @@
 var app = angular.module('foodsafety', ['scrollable-table']);
 
-app.controller('FilterController', ['$scope', '$http', function($scope, $http){
+app.controller('FilterController', ['$scope', '$http', '$window', function($scope, $http, $window){
   $scope.condition = {
     safeChoice: '',
     businessType: '',
     zipcode: '',
   };
 
-  // $scope.sortType = 'name'; // set the default sort type
-  // $scope.sortReverse = false; // set the default sort order
-  // $scope.searchName = ''; // set the default search/filter term
-
-  // $scope.customComparator = function(v1, v2){
-  //   if ($scope.sortType == 'violation_points'){
-  //     return (parseInt(v1.value) < parseInt(v2.value) ? -1 : 1);
-  //   }
-  //   else{
-  //     return (v1.value < v2.value ? -1 : 1);
-  //   }
-  // };
+  $scope.redirectToBing = function(name){
+    $window.open('https://www.bing.com/search?q=' + name, '_blank');
+  };
 
   $scope.violationComparator = function(v1, v2){
       // console.log(v1);
