@@ -11,14 +11,14 @@ app.controller('FilterController', ['$scope', '$http', function($scope, $http){
   $scope.sortReverse = false; // set the default sort order
   $scope.searchName = ''; // set the default search/filter term
 
-  $scope.customComparator = function(v1, v2){
-    if ($scope.sortType == 'violation_points'){
-      return (parseInt(v1.value) < parseInt(v2.value) ? -1 : 1);
-    }
-    else{
-      return (v1.value < v2.value ? -1 : 1);
-    }
-  };
+  // $scope.customComparator = function(v1, v2){
+  //   if ($scope.sortType == 'violation_points'){
+  //     return (parseInt(v1.value) < parseInt(v2.value) ? -1 : 1);
+  //   }
+  //   else{
+  //     return (v1.value < v2.value ? -1 : 1);
+  //   }
+  // };
 
   $scope.formatDate = function (datetimeString){
     var d = new Date(datetimeString);
