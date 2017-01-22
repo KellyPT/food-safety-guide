@@ -1,4 +1,4 @@
-var app = angular.module('foodsafety', []);
+var app = angular.module('foodsafety', ['scrollable-table']);
 
 app.controller('FilterController', ['$scope', '$http', function($scope, $http){
   $scope.condition = {
