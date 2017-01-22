@@ -125,16 +125,16 @@
               <th sortable-header col="name" class="col-md-3">
                   Name
               </th>
-              <th sortable-header col="address" class="col-md-3">
-                  Address
+              <th sortable-header col="address" class="col-md-4">
+                  Contacts
               </th>
-              <th sortable-header col="zip_code" class="col-md-1">
+              <!-- <th sortable-header col="zip_code" class="col-md-1">
                   Zip Code
               </th>
               <th sortable-header col="phone" class="col-md-1">
                   Phone
-              </th>
-              <th sortable-header col="violation" comparatorFn="violationComparator" class="col-md-1">
+              </th> -->
+              <th sortable-header col="violation" comparatorFn="violationComparator" class="col-md-2">
                   Violation Points
               </th>
               <th sortable-header col="inspection_date" class="col-md-2">
@@ -147,10 +147,10 @@
             <tr ng-repeat="d in data" class="row">
               <td class="col-md-1">{{ d.business_id }}</td>
               <td class="col-md-3"><a ng-href="" ng-click="redirectToBing(d.name)">{{ d.name }}</a></td>
-              <td class="col-md-3">{{ d.address }}</td>
-              <td class="col-md-1">{{ d.zip_code}}</td>
-              <td class="col-md-1">{{ d.phone }}</td>
-              <td class="col-md-1">{{ d.violation_points }}</td>
+              <td class="col-md-4">{{ d.address }}, {{d.city}}, {{d.zip_code}} </br>{{d.phone}}</td>
+              <!-- <td class="col-md-1">{{ d.zip_code}}</td>
+              <td class="col-md-1">{{ d.phone }}</td> -->
+              <td class="col-md-2">{{ d.violation_points }}</td>
               <td class="col-md-2">{{ formatDate(d.inspection_date) }}</td>
             </tr>
           </tbody>

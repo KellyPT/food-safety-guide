@@ -7,36 +7,9 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
     zipcode: '',
   };
 
-  $scope.redirectToBing = function(name){
-    $window.open('https://www.bing.com/search?q=' + name, '_blank');
-  };
-
-  $scope.violationComparator = function(v1, v2){
-      // console.log(v1);
-
-      if (v1.violation_points === null){
-        return -1;
-      }
-
-      if (v2.violation_points === null){
-        return 1;
-      }
-
-      return (parseInt(v1.violation_points) < parseInt(v2.violation_points) ? -1 : 1);
-  };
-
-  $scope.formatDate = function (datetimeString){
-    var d = new Date(datetimeString);
-    return d.toDateString();
-  };
-
   $scope.dbUrl = 'http://localhost:8080/search';
+
   $scope.data = [];
-  $scope.reset = function(){
-    $scope.condition.safeChoice = '';
-    $scope.condition.businessType = '';
-    $scope.condition.zipcode = '';
-  };
 
   $scope.$watch('condition', function onConditionChange(newValue, oldValue, scope){
     console.log("condition: ", newValue.zipcode);
@@ -74,4 +47,33 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
       console.log("Error in making DB call at " + $scope.dbUrl);
     });
   }, true);
+
+  $scope.reset = function(){
+    $scope.condition.safeChoice = '';
+    $scope.condition.businessType = '';
+    $scope.condition.zipcode = '';
+  };
+
+  $scope.redirectToBing = function(name){
+    $window.open('https://www.bing.com/search?q=' + encodeURIComponent(name) + ' restaurant Seattle', '_blank');
+  };
+
+  $scope.violationComparator = function(v1, v2){
+      // console.log(v1);
+
+      if (v1.violation_points === null){
+        return -1;
+      }
+
+      if (v2.violation_points === null){
+        return 1;
+      }
+
+      return (parseInt(v1.violation_points) < parseInt(v2.violation_points) ? -1 : 1);
+  };
+
+  $scope.formatDate = function (datetimeString){
+    var d = new Date(datetimeString);
+    return d.toDateString();
+  };
 }]);
