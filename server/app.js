@@ -33,14 +33,6 @@ var requestByID = function(id) {
   });
 };
 
-// app.use(function(req, res, next){
-//   res.setTimeout(600000, function(){
-//     console.log("Request has timed out...");
-//     res.sendStatus(408);
-//   });
-//   next();
-// });
-
 // this route is to refresh API call and db migration
 app.get('/refresh', function(req, response){
   // create a clean function in mongoUtil to clean current collection;
@@ -62,22 +54,13 @@ app.get('/refresh', function(req, response){
       process.exit(1);
     }
     var results = JSON.parse(body);
-    for (var i = 0; i < (results.length/2); i++) {
+    for (var i = 0; i < results.length; i++) {
 
       var id = results[i].business_id;
 
       requestByID(id);
       console.log(i);
     }
-
-    for (var j = (results.length / 2 + 1); j < results.length; j++) {
-
-      var id2 = results[j].business_id;
-
-      requestByID(id2);
-      console.log(j);
-    }
-
   });
 
   console.log("Loaded all data from API");
@@ -121,14 +104,5 @@ app.get('/search', function(req, response){
 app.get('/', function(req, response){
 
 });
-
-// var dataURL = url.format(options);
-//
-// request(dataURL, function(err, res, body){
-//   var results = JSON.parse(body);
-//   response.locals = {results: results};
-//   response.render('test.ejs');
-// });
-
 
 app.listen(8080, function() {console.log("Listening on 8080");});
