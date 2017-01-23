@@ -108,4 +108,4 @@ app.get('/', function(req, response){
   response.sendFile('./client/index.html');
 });
 
-app.listen(8080, function() {console.log("Listening on 8080");});
+app.listen(process.env.PORT, function() {console.log("Listening on " + process.env.PORT );});
