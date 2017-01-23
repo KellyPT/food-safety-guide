@@ -1,12 +1,12 @@
-var app = angular.module('foodsafety', ['ngRoute', 'scrollable-table']);
+var app = angular.module('foodsafety', ['scrollable-table']);
 
-app.config(function($routeProvider){
-  $routeProvider
-    .when("/", {
-      templateUrl: "index.html",
-      controller: "FilterController"
-    });
-});
+// app.config(function($routeProvider){
+//   $routeProvider
+//     .when("/", {
+//       templateUrl: "index.html",
+//       controller: "FilterController"
+//     });
+// });
 
 app.controller('FilterController', ['$scope', '$http', '$window', function($scope, $http, $window){
   $scope.condition = {
@@ -15,7 +15,8 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
     zipcode: '',
   };
 
-  $scope.dbUrl = 'http://localhost:8080/search';
+  // $scope.dbUrl = 'http://localhost:8080/search';
+  $scope.dbUrl = '/search';
 
   $scope.data = [];
 
@@ -37,7 +38,9 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
       params += "&zipcode=" + newValue.zipcode;
     }
 
-    var url = "http://localhost:8080/search";
+    // var url = "http://localhost:8080/search";
+    var url = "/search";
+
     if (params.length > 0)
     {
       url += "?" + params.slice(1);
