@@ -61,7 +61,7 @@ var search = function(paramSet, callback){
 
 var connect = function() {
   // client.connect('mongodb://localhost:27017/testing', function(err, db){
-  var connectUrl = 'mongodb://' + process.env.MONGOD_USERNAME + ':' + process.env.MONGOD_PASSWORD + '@' + process.env.HOST_NAME + ':' + process.env.PORT + '/' + process.env.DB_NAME;
+  var connectUrl = 'mongodb://' + process.env.MONGOD_USERNAME + ':' + process.env.MONGOD_PASSWORD + '@' + process.env.HOST_NAME + ':' + process.env.MONGOD_PORT + '/' + process.env.DB_NAME;
 
   // console.log(connectUrl);
   client.connect(connectUrl, function(err, db){
