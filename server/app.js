@@ -103,4 +103,8 @@ app.get('/search', function(req, response){
   });
 });
 
+app.get('/', function(req, response){
+  response.sendFile(__dirname + '/../client/index.html');
+});
+
 app.listen(8080, function() {console.log("Listening on 8080");});
