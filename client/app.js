@@ -1,4 +1,12 @@
-var app = angular.module('foodsafety', ['scrollable-table']);
+var app = angular.module('foodsafety', ['ngRoute', 'scrollable-table']);
+
+app.config(function($routeProvider){
+  $routeProvider
+    .when("/", {
+      templateUrl: "index.html",
+      controller: "FilterController"
+    });
+});
 
 app.controller('FilterController', ['$scope', '$http', '$window', function($scope, $http, $window){
   $scope.condition = {
