@@ -71,15 +71,7 @@ var connect = function() {
   });
 };
 
-var inspections = function(){
-  var inspections = _db.collection("inspections").find().toArray(function(err, docs){
-    console.log(JSON.stringify(docs));
-  });
-  return inspections;
-};
-
 exports.connect = connect;
-exports.inspections = inspections;
 exports.insert = insert;
 exports.clearDB = clearDB;
 exports.search = search;
