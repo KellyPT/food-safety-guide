@@ -15,170 +15,168 @@
   <script type="text/javascript" src="./src/app.js"></script>
 </head>
 <body>
-  <h1>Safe Food in Seattle</h1>
+    <h1>Safe Food in Seattle</h1>
 
-  <form name="FilteringForm" ng-controller="FilterController">
+    <form name="FilteringForm" ng-controller="FilterController">
 
     <!-- <button type="button" ng-click="reset()">Reset</button> -->
 
-    <div class="row">
-      <div class="col-md-3">
-        <h4>Safe or Unsafe</h4>
-        <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice" class="selectpicker" data-style="btn-primary">
-          <option value="">All</option>
-          <option value="safe">Safe</option>
-          <option value="unsafe">Unsafe</option>
-        </select>
-        <p>
-          A food establishment is categorized as 'Safe' if it achieved 0 violation point after the latest inspection. Otherwise, it is categorized as 'Unsafe'.
-        </p>
-      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Safe or Unsafe</h4>
+          <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice" class="selectpicker" data-style="btn-primary">
+            <option value="">All</option>
+            <option value="safe">Safe</option>
+            <option value="unsafe">Unsafe</option>
+          </select>
+          <p>
+            A food establishment is categorized as 'Safe' if it achieved 0 violation point after the latest inspection. Otherwise, it is categorized as 'Unsafe'.
+          </p>
+        </div>
 
-      <div class="col-md-3">
-        <h4>Capacity and Type</h4>
-        <select name="businessType" id="businessType" ng-model="condition.businessType" class="selectpicker" data-style="btn-primary">
-          <option value="">All</option>
-          <optgroup label="Available Seating">
-            <option value="Seating 0-12">Eatery 0-12 seats</option>
-            <option value="Seating 13-50">Eatery 13-50 seats</option>
-            <option value="Seating 51-150">Eatery 51-150 seats</option>
-            <option value="Seating 151-250">Eatery 151-250 seats</option>
-            <option value="Seating > 250">Eatery > 250 seats</option>
-          </optgroup>
-          <optgroup label="No Seating">
-            <option value="Bakery">Bakery (no seating)</option>
-            <option value="Grocery">Grocery Store (no seating)</option>
-            <option value="Limited">Limited Food Services</option>
-            <option value="Meat">Meat/Sea Food Supermarket</option>
-            <option value="Mobile">Mobile Food Unit</option>
-          </optgroup>
-          <optgroup label="Other Types">
-            <option value="Bed">Bed &amp; Breakfast</option>
-            <option value="Bed">Caterer</option>
-            <option value="Non-Profit">Non-Profit Institution</option>
-            <option value="School">School Lunch Program</option>
-            <option value="Tasting">Tasting Room</option>
-          </optgroup>
-        </select>
-        <p>
-          Pick an eatery based on its seating capacity or type.
-        </p>
-      </div>
+        <div class="col-md-3">
+          <h4>Capacity and Type</h4>
+          <select name="businessType" id="businessType" ng-model="condition.businessType" class="selectpicker" data-style="btn-primary">
+            <option value="">All</option>
+            <optgroup label="Available Seating">
+              <option value="Seating 0-12">Eatery 0-12 seats</option>
+              <option value="Seating 13-50">Eatery 13-50 seats</option>
+              <option value="Seating 51-150">Eatery 51-150 seats</option>
+              <option value="Seating 151-250">Eatery 151-250 seats</option>
+              <option value="Seating > 250">Eatery > 250 seats</option>
+            </optgroup>
+            <optgroup label="No Seating">
+              <option value="Bakery">Bakery (no seating)</option>
+              <option value="Grocery">Grocery Store (no seating)</option>
+              <option value="Limited">Limited Food Services</option>
+              <option value="Meat">Meat/Sea Food Supermarket</option>
+              <option value="Mobile">Mobile Food Unit</option>
+            </optgroup>
+            <optgroup label="Other Types">
+              <option value="Bed">Bed &amp; Breakfast</option>
+              <option value="Bed">Caterer</option>
+              <option value="Non-Profit">Non-Profit Institution</option>
+              <option value="School">School Lunch Program</option>
+              <option value="Tasting">Tasting Room</option>
+            </optgroup>
+          </select>
+          <p>
+            Pick an eatery based on its seating capacity or type.
+          </p>
+        </div>
 
-      <div class="col-md-3">
-        <h4>Location</h4>
-        <select name="zipcode" id="zipcode" ng-model="condition.zipcode" class="selectpicker" data-style="btn-primary" data-live-search="true">
-          <option value="">All</option>
-          <option value="98032">98032</option>
-          <option value="98034">98034</option>
-          <option value="98057">98057</option>
-          <option value="98101">98101</option>
-          <option value="98102">98102</option>
-          <option value="98103">98103</option>
-          <option value="98104">98104</option>
-          <option value="98105">98105</option>
-          <option value="98106">98106</option>
-          <option value="98107">98107</option>
-          <option value="98108">98108</option>
-          <option value="98109">98109</option>
-          <option value="98112">98112</option>
-          <option value="98115">98115</option>
-          <option value="98116">98116</option>
-          <option value="98117">98117</option>
-          <option value="98118">98118</option>
-          <option value="98119">98119</option>
-          <option value="98121">98121</option>
-          <option value="98122">98122</option>
-          <option value="98124">98124</option>
-          <option value="98125">98125</option>
-          <option value="98126">98126</option>
-          <option value="98133">98133</option>
-          <option value="98134">98134</option>
-          <option value="98136">98136</option>
-          <option value="98144">98144</option>
-          <option value="98146">98146</option>
-          <option value="98148">98148</option>
-          <option value="98158">98158</option>
-          <option value="98166">98166</option>
-          <option value="98168">98168</option>
-          <option value="98177">98177</option>
-          <option value="98178">98178</option>
-          <option value="98188">98188</option>
-          <option value="98198">98198</option>
-          <option value="98199">98199</option>
-          <option value="98314">98314</option>
-        </select>
-        <p>
-          Pick your zip code.
-        </p>
-      </div>
+        <div class="col-md-3">
+          <h4>Location</h4>
+          <select name="zipcode" id="zipcode" ng-model="condition.zipcode" class="selectpicker" data-style="btn-primary" data-live-search="true">
+            <option value="">All</option>
+            <option value="98032">98032</option>
+            <option value="98034">98034</option>
+            <option value="98057">98057</option>
+            <option value="98101">98101</option>
+            <option value="98102">98102</option>
+            <option value="98103">98103</option>
+            <option value="98104">98104</option>
+            <option value="98105">98105</option>
+            <option value="98106">98106</option>
+            <option value="98107">98107</option>
+            <option value="98108">98108</option>
+            <option value="98109">98109</option>
+            <option value="98112">98112</option>
+            <option value="98115">98115</option>
+            <option value="98116">98116</option>
+            <option value="98117">98117</option>
+            <option value="98118">98118</option>
+            <option value="98119">98119</option>
+            <option value="98121">98121</option>
+            <option value="98122">98122</option>
+            <option value="98124">98124</option>
+            <option value="98125">98125</option>
+            <option value="98126">98126</option>
+            <option value="98133">98133</option>
+            <option value="98134">98134</option>
+            <option value="98136">98136</option>
+            <option value="98144">98144</option>
+            <option value="98146">98146</option>
+            <option value="98148">98148</option>
+            <option value="98158">98158</option>
+            <option value="98166">98166</option>
+            <option value="98168">98168</option>
+            <option value="98177">98177</option>
+            <option value="98178">98178</option>
+            <option value="98188">98188</option>
+            <option value="98198">98198</option>
+            <option value="98199">98199</option>
+            <option value="98314">98314</option>
+          </select>
+          <p>
+            Pick your zip code.
+          </p>
+        </div>
 
-      <div class="col-md-3">
-        <h4>Unsatisfied?</h4>
-        <button class="btn-info" type="clear" ng-click="reset()">Reset</button>
-        <button class="btn-info" type="clear" ng-click="redirect()">Explore</button>
+        <div class="col-md-3">
+          <h4>Unsatisfied?</h4>
+          <button class="btn-info" type="clear" ng-click="reset()">Reset</button>
+          <button class="btn-info" type="clear" ng-click="redirect()">Explore</button>
+        </div>
       </div>
-    </div>
 
     <div>
       <h4>Where to eat?</h4>
-      <div class="result">
-        <tt>condition = {{condition | json}}</tt><br/>
-        <tt>dbUrl = {{dbUrl}}</tt><br/>
-        <tt>data count = {{data.length}}</tt><br/>
-      </div>
-
-
-      <!-- <div class="alert alert-info">
-      <p>Sort Type: {{ sortType }}</p>
-      <p>Sort Reverse: {{ sortReverse }}</p>
-      <p>Search Query: {{ searchName }}</p>
+      <!-- <div class="result">
+      <tt>condition = {{condition | json}}</tt><br/>
+      <tt>dbUrl = {{dbUrl}}</tt><br/>
+      <tt>data count = {{data.length}}</tt><br/>
     </div> -->
+
+
+    <!-- <div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ searchName }}</p>
+  ``</div> -->
 
     <p>There are {{data.length}} results</p>
     <scrollable-table watch="data">
-      <table class="table table-striped table-bordered">
+      <table class="table">
         <thead>
           <tr class="row">
             <th sortable-header col="business_id" class="col-md-1">
               Business ID
-            </th>
-            <th sortable-header col="name" class="col-md-3">
-              Name
-            </th>
-            <th sortable-header col="address" class="col-md-4">
-              Contacts
-            </th>
-            <!-- <th sortable-header col="zip_code" class="col-md-1">
-            Zip Code
-          </th>
-          <th sortable-header col="phone" class="col-md-1">
-          Phone
-        </th> -->
-        <th sortable-header col="violation" comparatorFn="violationComparator" class="col-md-2">
-          Violation Points
-        </th>
-        <th sortable-header col="inspection_date" class="col-md-2">
-          Inspection Date
-        </th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="d in data" class="row">
-        <td class="col-md-1">{{ d.business_id }}</td>
-        <td class="col-md-3"><a ng-href="" ng-click="redirectToBing(d.name)">{{ d.name }}</a></td>
-        <td class="col-md-4">{{ d.address }}, {{d.city}}, {{d.zip_code}} </br>{{d.phone}}</td>
-        <!-- <td class="col-md-1">{{ d.zip_code}}</td>
-        <td class="col-md-1">{{ d.phone }}</td> -->
-        <td class="col-md-2">{{ d.violation_points }}</td>
-        <td class="col-md-2">{{ formatDate(d.inspection_date) }}</td>
-      </tr>
-    </tbody>
-  </table>
-</scrollable-table>
-</div>
-</form>
-
+              </th>
+              <th sortable-header col="name" class="col-md-3">
+                Name
+              </th>
+              <th sortable-header col="address" class="col-md-4">
+                Contacts
+              </th>
+              <!-- <th sortable-header col="zip_code" class="col-md-1">
+                Zip Code
+              </th>
+              <th sortable-header col="phone" class="col-md-1">
+                Phone
+              </th> -->
+              <th sortable-header col="violation" comparatorFn="violationComparator" class="col-md-2">
+                Violation Points
+              </th>
+              <th sortable-header col="inspection_date" class="col-md-2">
+                Inspection Date
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="d in data" class="row">
+              <td class="col-md-1">{{ d.business_id }}</td>
+              <td class="col-md-3"><a ng-href="" ng-click="redirectToBing(d.name)">{{ d.name }}</a></td>
+              <td class="col-md-4">{{ d.address }}, {{d.city}}, {{d.zip_code}} </br>{{d.phone}}</td>
+              <!-- <td class="col-md-1">{{ d.zip_code}}</td>
+              <td class="col-md-1">{{ d.phone }}</td> -->
+              <td class="col-md-2">{{ d.violation_points }}</td>
+              <td class="col-md-2">{{ formatDate(d.inspection_date) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </scrollable-table>
+    </div>
+  </form>
 </body>
 </html>
