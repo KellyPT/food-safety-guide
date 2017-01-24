@@ -6,6 +6,7 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-scrollable-table": "^1.1.2",
+    "bootstrap": "^3.3.7",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.5",
     "express": "~4.14.0",
@@ -17,7 +18,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start":"node server_app.js",
+    "start": "node server_app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

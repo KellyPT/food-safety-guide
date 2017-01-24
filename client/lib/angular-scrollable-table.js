@@ -231,7 +231,7 @@
             } else {
               tableController.setSortExpr(expr);
             }
-            tableController.doSort(scope[attrs.comparatorFn]);
+            tableController.doSort(scope[attrs.comparatorfn]);
             e.preventDefault();
           };
           scope.isAscending = function () {

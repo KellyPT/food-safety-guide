@@ -8,7 +8,7 @@ var app = express();
 
 var mongoUtil = require('./server/mongoUtil');
 app.use(express.static(__dirname + '/client'));
-
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 mongoUtil.connect();
 
 // helper function: create a separate query based on business ID to avoid closures in JavaScript
