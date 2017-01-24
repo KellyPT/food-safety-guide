@@ -63,6 +63,7 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
     $scope.condition.safeChoice = '';
     $scope.condition.businessType = '';
     $scope.condition.zipcode = '';
+    $('select').val('').selectpicker('refresh');
   };
 
   $scope.redirectToBing = function(name){

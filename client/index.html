@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col-md-3">
         <h4>Safe or Unsafe</h4>
-        <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice" class="selectpicker" data-style="btn-warning">
+        <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice" class="selectpicker" data-style="btn-primary">
           <option value="">All</option>
           <option value="safe">Safe</option>
           <option value="unsafe">Unsafe</option>
@@ -36,7 +36,7 @@
 
       <div class="col-md-3">
         <h4>Capacity and Type</h4>
-        <select name="businessType" id="businessType" ng-model="condition.businessType" class="selectpicker" data-style="btn-warning">
+        <select name="businessType" id="businessType" ng-model="condition.businessType" class="selectpicker" data-style="btn-primary">
           <option value="">All</option>
           <option value="Bakery">Bakery (no seating)</option>
           <option value="Bed">Bed &amp; Breakfast</option>
@@ -61,7 +61,7 @@
 
       <div class="col-md-3">
         <h4>Location</h4>
-        <select name="zipcode" id="zipcode" ng-model="condition.zipcode" class="selectpicker" data-style="btn-warning">
+        <select name="zipcode" id="zipcode" ng-model="condition.zipcode" class="selectpicker" data-style="btn-primary">
           <option value="">All</option>
           <option value="98032">98032</option>
           <option value="98034">98034</option>
@@ -106,20 +106,20 @@
           Pick your zip code.
         </p>
       </div>
-
-      <div class="col-md-3">
-        <h4>  </h4>
-        <button class="btn btn-danger" type="clear" ng-click="reset()">Reset</button>
-      </div>
     </div>
 
     <div>
-      <h3>Your Seattle Restaurants</h3>
+      <button class="btn-info" type="clear" ng-click="reset()">Reset</button>
+    </div>
+
+    <div>
+      <h4>Where to eat?</h4>
       <div class="result">
         <tt>condition = {{condition | json}}</tt><br/>
         <tt>dbUrl = {{dbUrl}}</tt><br/>
         <tt>data count = {{data.length}}</tt><br/>
       </div>
+
 
       <!-- <div class="alert alert-info">
       <p>Sort Type: {{ sortType }}</p>
@@ -127,6 +127,7 @@
       <p>Search Query: {{ searchName }}</p>
     </div> -->
 
+    <p>There are {{data.length}} results</p>
     <scrollable-table watch="data">
       <table class="table table-striped table-bordered">
         <thead>
