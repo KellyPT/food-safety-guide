@@ -7,6 +7,7 @@
     "angular": "^1.6.1",
     "angular-scrollable-table": "^1.1.2",
     "bootstrap": "^3.3.7",
+    "bootstrap-select": "^1.12.1",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.5",
     "express": "~4.14.0",
