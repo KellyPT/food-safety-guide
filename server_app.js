@@ -8,6 +8,7 @@ var app = express();
 
 var mongoUtil = require('./server/mongoUtil');
 app.use(express.static(__dirname + '/client'));
+// expose node_modules folder to client side
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 mongoUtil.connect();
 
