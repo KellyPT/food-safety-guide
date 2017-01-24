@@ -14,10 +14,13 @@
 </head>
 <body>
   <h1>Safe Food in Seattle</h1>
+
   <form name="FilteringForm" ng-controller="FilterController">
-    <button type="button" ng-click="reset()">Reset</button>
+
+    <!-- <button type="button" ng-click="reset()">Reset</button> -->
+
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <h3>Safe or Unsafe</h3>
         <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice">
           <option value="">All</option>
@@ -26,7 +29,7 @@
         </select><br/>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <h3>Eatery Capacity / Type</h3>
         <select name="businessType" id="businessType" ng-model="condition.businessType">
           <option value="">All</option>
@@ -48,7 +51,7 @@
         </select><br/>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <h3>Location</h3>
         <select name="zipcode" id="zipcode" ng-model="condition.zipcode">
           <option value="">All</option>
@@ -93,6 +96,10 @@
         </select><br/>
       </div>
 
+      <div class="col-md-3">
+        <h3>Start Again</h3>
+        <button type="button" ng-click="reset()">Reset</button>
+      </div>
     </div>
 
     <div>
