@@ -24,12 +24,12 @@ select.selectpicker {
 
 .scrollableContainer {
     /*changed value on Jan 24:*/
-    height: 400px;
+    height: 500px;
 }
 
 .scrollArea table th .box {
     padding: 0 8px;
     padding-right: 11px;    /*  order icon width*/
-    /*Commented out on Jan 24: */
-    /*border-left: 1px solid #ddd;*/
+    /*Fixed px on Jan 24: */
+    /*border-left: 0px solid #ddd;*/
 }
