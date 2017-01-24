@@ -21,3 +21,15 @@ select.selectpicker {
 .bootstrap-select > .dropdown-toggle.bs-placeholder:active {
   color: #fff;
 }
+
+.scrollableContainer {
+    /*changed value on Jan 24:*/
+    height: 400px;
+}
+
+.scrollArea table th .box {
+    padding: 0 8px;
+    padding-right: 11px;    /*  order icon width*/
+    /*Commented out on Jan 24: */
+    /*border-left: 1px solid #ddd;*/
+}
