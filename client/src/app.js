@@ -89,3 +89,7 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
     return d.toDateString();
   };
 }]);
+
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});

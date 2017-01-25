@@ -27,9 +27,26 @@ select.selectpicker {
     height: 500px;
 }
 
+.scrollArea {
+    border: 1px solid rgba(51, 122, 183, 0.45);
+}
+
 .scrollArea table th .box {
     padding: 0 8px;
     padding-right: 11px;    /*  order icon width*/
     /*Fixed px on Jan 24: */
-    border-left: 0px solid #ddd;
+    border-left: 0px solid rgba(51, 122, 183, 0.45);
+}
+
+.scrollableContainer .headerSpacer {
+    border: 1px solid rgba(51, 122, 183, 0.45);
+    border-bottom-color: rgba(51, 122, 183, 0.45);
+}
+
+.scrollArea table tbody tr:last-child td {
+    border-bottom: 1px solid rgba(51, 122, 183, 0.45);
+}
+
+.scrollArea table tbody tr td {
+    border-bottom: 1px solid rgba(51, 122, 183, 0.45);
 }
