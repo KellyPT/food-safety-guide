@@ -11,13 +11,9 @@
       .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
   var projection = d3.geo.mercator()
-                     .center([-122.3321, 47.6062])
-            	     .scale(50000)
-            	     .translate([(width) / 2, (height)/2]);
-
-  //var projection = d3.geo.albersUsa()
-  //    .scale(6000)
-  //    .translate([2300, 680]);
+      .center([-122.3321, 47.6062])
+      .scale(50000)
+      .translate([(width) / 2, (height)/2]);
 
   var path = d3.geo.path()
       .projection(projection);
