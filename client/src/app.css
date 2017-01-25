@@ -50,3 +50,7 @@ select.selectpicker {
 .scrollArea table tbody tr td {
     border-bottom: 1px solid rgba(51, 122, 183, 0.45);
 }
+
+#table {
+  margin-top: 40px;
+}
