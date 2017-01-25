@@ -7,7 +7,7 @@
   var rateById = d3.map();
 
   var quantize = d3.scale.quantize()
-      .domain([0, 600000])
+      .domain([0, 500])
       .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
 
   var projection = d3.geo.mercator()
@@ -40,7 +40,7 @@
 
   queue()
       .defer(d3.json, "/map/Seattle.topojson")
-      .defer(d3.csv, "/map/data.csv", function(d) { rateById.set(d.zip.toString(), +d.values); })
+      .defer(d3.csv, "/map/all_biz.csv", function(d) { rateById.set(d.zip.toString(), +d.values); })
       .await(ready);
 
   function ready(error, zipcode) {
@@ -107,7 +107,7 @@
         .style("opacity", 1);
 
     tooltip
-        .html("<p><strong>Zipcode: " + getZip(d) + "<br>Population: "  + getPopulation(d) + "</strong></p>")
+        .html("<p><strong>Zipcode: " + getZip(d) + "<br># of businesses: "  + getPopulation(d) + "</strong></p>")
         .style("left", (d3.event.pageX + 25) + "px")
         .style("top",  (d3.event.pageY - 28) + "px");
   }
