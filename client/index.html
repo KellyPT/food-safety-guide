@@ -23,7 +23,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <h4>Safe or Unsafe <a href="#" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="A food business is categorized as 'Safe' if it had 0 violation point during the latest inspection. Otherwise, it is categorized as 'Unsafe'.">?</a></h4>
+          <h4>Safe or Unsafe  <a href="#" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="A food business is categorized as 'Safe' if it had 0 violation point during the latest inspection. Otherwise, it is categorized as 'Unsafe'."><img src="./src/img/bluequestionmark.png" height="15px"/></a></h4>
           <select name="safeChoice" id="safeChoice" ng-model="condition.safeChoice" class="selectpicker" data-style="btn-primary">
             <option value="">All</option>
             <option value="safe">Safe</option>
@@ -32,7 +32,7 @@
         </div>
 
         <div class="col-md-3">
-          <h4>Capacity or Type <a href="#" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="You could decide to dine in or take out, or simply check on other food-serving facilities.">?</a></h4>
+          <h4>Capacity or Type  <a href="#" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Decide to dine in or take out, or simply check on other food-serving facilities."><img src="./src/img/bluequestionmark.png" height="15px"/></a></h4>
           <select name="businessType" id="businessType" ng-model="condition.businessType" class="selectpicker" data-style="btn-primary">
             <option value="">All</option>
             <optgroup label="Available Seating">
@@ -60,7 +60,7 @@
         </div>
 
         <div class="col-md-3">
-          <h4>Location <a href="#" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Pick the zip code of where you want to eat.">?</a></h4>
+          <h4>Location  <a href="#" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Pick the zip code of your preferred location."><img src="./src/img/bluequestionmark.png" height="15px"/></a></h4>
           <select name="zipcode" id="zipcode" ng-model="condition.zipcode" class="selectpicker" data-style="btn-primary" data-live-search="true">
             <option value="">All</option>
             <option value="98032">98032</option>
@@ -111,7 +111,7 @@
         </div>
       </div>
 
-    <div>
+    <div id="table">
       <h4>Available Dining Options</h4>
       <!-- <div class="result">
       <tt>condition = {{condition | json}}</tt><br/>
