@@ -70,6 +70,10 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
     $window.open('https://www.bing.com/search?q=' + encodeURIComponent(name) + ' restaurant Seattle', '_blank');
   };
 
+  $scope.redirect = function(){
+    $window.open('./map.html');
+  };
+
   $scope.violationComparator = function(v1, v2){
       // console.log(v1);
 
@@ -91,5 +95,5 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
 }]);
 
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
+    $('[data-toggle="popover"]').popover();
 });
