@@ -10,6 +10,7 @@ var mongoUtil = require('./server/mongoUtil');
 app.use(express.static(__dirname + '/client'));
 // expose node_modules folder to client side
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use('/map', express.static(__dirname + '/client/src/map'));
 mongoUtil.connect();
 
 // helper function: create a separate query based on business ID to avoid closures in JavaScript
