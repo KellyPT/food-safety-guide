@@ -1,6 +1,60 @@
 body {
-  margin-left: 20px;
+  /*margin-left: 20px;
+  margin-right: 20px;*/
+  /*font-family: 'Lato', sans-serif;*/
+  /*font-family: 'Josefin Slab', serif;*/
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 10px solid #337ab7;
+}
+
+i.fa-cutlery {
+  font-size: 14px;
+  color: #337ab7;
+  text-align: center;
+  /*margin-bottom: 20px;*/
+}
+
+h1 {
+  /*font-family: 'Fredericka the Great', cursive;*/
+  font-family: 'Cabin Sketch', cursive;
+  color: #337ab7;
+  font-size: 70px;
+  text-align: center;
+  /*margin-top: 30px;*/
+  margin-bottom: 20px;
+}
+
+h1 i.fa-cutlery {
+  font-size: 55px;
   margin-right: 20px;
+}
+
+h4 {
+  /*font-family: 'Buda', cursive;*/
+  /*font-family: 'Fredericka the Great', cursive;*/
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 24px;
+}
+
+footer {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+  color: #337ab7;
+  margin-bottom: 15px;
+}
+
+th {
+  font-weight: 800;
+}
+
+.container {
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 select.selectpicker {
@@ -24,7 +78,7 @@ select.selectpicker {
 
 .scrollableContainer {
     /*changed value on Jan 24:*/
-    height: 500px;
+    height: 450px;
 }
 
 .scrollArea {
@@ -53,4 +107,37 @@ select.selectpicker {
 
 #table {
   margin-top: 40px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (orientation: portrait) {
+  #table {
+    width: 100%;
+  }
+
+  #table td {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  #table table.table thead tr th div.th-inner,
+  #table div.headerSpacer,
+  #table table.table thead {
+    display: none;
+  }
+
+  #table tr {
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+    margin: 0 0 15px;
+  }
 }

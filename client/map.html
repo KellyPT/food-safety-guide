@@ -2,25 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Open+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/2348f47b23.js"></script>
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <link rel="stylesheet"
     <link rel="stylesheet" type="text/css" href="./src/map/main.css">
+    <link rel="stylesheet" href="./src/app.css">
     <title>Map</title>
   </head>
   <body>
-    <h2>Map of Seattle's food businesses</h2>
+    <h1>Seattle's Food Businesses in a Map</h1>
     <div class="container">
-        <h5>Darker color indicates a higher number of food businesses in a particular zip code</h5>
-        <div id="wa-chart">
-        </div>
+        <h4>A darker color indicates a higher number of food businesses in a particular zip code.</h4>
+        <div id="wa-chart"></div>
     </div>
-    <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+
+    <footer>
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+        A Website by Kelly Tran.
+        Copyright &copy; 2016 - Present.  All rights reserved. Powered by <a href="https://data.kingcounty.gov/Health/Food-Establishment-Inspection-Data/f29f-zza5#showMore">Data.KingCounty.gov.</a>
+        <i class="fa fa-cutlery" aria-hidden="true"></i>
+    </footer>
+
     <script src="../node_modules/d3/d3.min.js"></script>
-    <!-- <script src="http://d3js.org/topojson.v1.min.js"></script> -->
     <script src="../node_modules/topojson/build/topojson.min.js"></script>
-    <!-- <script src="http://d3js.org/queue.v1.min.js"></script> -->
     <script src="./node_modules/d3-queue/build/queue.min.js"></script>
 
     <script type="text/javascript" src="./src/map/main.js"></script>
