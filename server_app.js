@@ -8,12 +8,11 @@ var app = express();
 
 var mongoUtil = require('./server/mongoUtil');
 app.use(express.static(__dirname + '/client'));
-// expose node_modules folder to client side
+
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/map', express.static(__dirname + '/client/src/map'));
 mongoUtil.connect();
 
-// helper function: create a separate query based on business ID to avoid closures in JavaScript
 var requestByID = function(id) {
   bizOptions = {
     protocol: "https:",
@@ -29,7 +28,6 @@ var requestByID = function(id) {
     } else {
       var data = JSON.parse(bBody);
       if (data && data.length > 0){
-        // console.log(JSON.stringify(data));
         mongoUtil.insert(data[0]);
         console.log("Inserted data for business " + id);
       } else {
@@ -39,9 +37,7 @@ var requestByID = function(id) {
   });
 };
 
-// this route is to refresh API call and db migration
 app.get('/refresh', function(req, response){
-  // create a clean function in mongoUtil to clean current collection;
   mongoUtil.clearDB();
 
   options = {
@@ -72,36 +68,18 @@ app.get('/refresh', function(req, response){
   console.log("Loaded all data from API");
 });
 
-// how to refresh:
-// connect to the database pathway: mongod --dbpath /Users/kelly/Desktop/Ada_C6/Capstone/capstone-database/
-// [initandlisten]: waiting for connections on port 27017
-// open another terminal tab: $ mongo
-// drop the current database: db.inspections.drop();
-// check successful deletion: show dbs;
-// launch: $ node app.js
-// open another tab: $ curl -i localhost:8080/refresh
-// look at node window: connected to database
-// use database (specified in 'connect'): use testing --> switched to db testing
-// check new data inserted into db: db.inspections.find().pretty();
 
-// this route is to load data from db
 app.get('/search', function(req, response){
-  // need this to allow cross-origin HTTP request
-  // in this case, the request comes from angular app
-  // from a different port
   response.header("Access-Control-Allow-Origin", "*");
 
   console.log("request made for DB query");
-  // pass the request url parameters to mongoUtil search
-  // and define a callback function to handle results
+
   mongoUtil.search(req.query, function(err, results){
     if (err){
       console.log(err);
       return response(err);
     }
 
-    // log the results and put them in json response
-    // console.log(results);
     return response.json(results);
   });
 });

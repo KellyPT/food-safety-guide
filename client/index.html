@@ -116,7 +116,7 @@
     <p>There are {{data.length}} results. Sort by clicking on headers. Click on a business's name to search with Bing.</p>
 
     <div class="mobile-only">
-      <p>The content of each card below has the following headers: Business ID, Business Name, Contacts, Violation Points, Inspection Date</p>
+      <p>The content of each card below has the following headers: Business ID, Business Name, Contacts, Violation Points, Inspection Date.</p>
     </div>
     <scrollable-table watch="data">
       <table class="table table-hover">
@@ -144,7 +144,7 @@
             <td class="col-md-1">{{ d.business_id }}</td>
             <td class="col-md-3"><a ng-href="" ng-click="redirectToBing(d.name)">{{ d.name }}</a></td>
             <td class="col-md-4">{{ d.address }}, {{d.city}}, {{d.zip_code}} </br>{{d.phone}}</td>
-            <td class="col-md-2">{{ d.violation_points }}</td>
+            <td class="col-md-2 point">{{ d.violation_points }}</td>
             <td class="col-md-2">{{ formatDate(d.inspection_date) }}</td>
           </tr>
         </tbody>

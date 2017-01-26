@@ -1,13 +1,5 @@
 var app = angular.module('foodsafety', ['scrollable-table']);
 
-// app.config(function($routeProvider){
-//   $routeProvider
-//     .when("/", {
-//       templateUrl: "index.html",
-//       controller: "FilterController"
-//     });
-// });
-
 app.controller('FilterController', ['$scope', '$http', '$window', function($scope, $http, $window){
   $scope.condition = {
     safeChoice: '',
@@ -15,7 +7,6 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
     zipcode: '',
   };
 
-  // $scope.dbUrl = 'http://localhost:8080/search';
   $scope.dbUrl = '/search';
 
   $scope.data = [];
@@ -75,8 +66,6 @@ app.controller('FilterController', ['$scope', '$http', '$window', function($scop
   };
 
   $scope.violationComparator = function(v1, v2){
-      // console.log(v1);
-
       if (v1.violation_points === null){
         return -1;
       }
