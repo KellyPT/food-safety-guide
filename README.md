@@ -1,13 +1,14 @@
-## Product Delivery
- Final product hosted at https://seattle-foodsafety.herokuapp.com/ 
+## Product Delivery (Jan 2017)
+- Final product deployment: https://seattle-foodsafety.herokuapp.com/ (It takes around 5s-10s to load the website due to my large dataset).
+- Completed in 3.5 weeks, this capstone project was part of my training at Ada Developers Academy (ADA). I am so glad ADA featured my project in article [A learning experience for everyone](http://adadevacademy.tumblr.com/post/157292589122/a-learning-experience-for-everyone) on their official blog!
 
-## Product Plan Components
+## Product Plan Components (Dec 2016)
 ### Problem Statement: 
   - King County's Health Department has populated inspection results for food service establishments since 2006. Food inspection data is important because people should be aware of unsafe food services and protect their health.
   - My goal is to build an interactive web tool to make the public aware of food inspection violations and help them identify safe food establishments in their neighbourhoods.
   
 ### Personal Learning Goals: 
-  - Learn a new JavaScript-based MVC stack: MongoDB/SQL, Express.js, Angular.js and Node.js. 
+  - Learn a new JavaScript-based MVC stack: MongoDB, Express.js, Angular.js and Node.js. 
   - Learn to consume API using JavaScript.
   - Learn D3.js for data visualization.
 
@@ -45,7 +46,7 @@
   - Infrastructure: 
       - Heroku for website hosting
       - mLab for MongoDB database hosting
-  - Food Inspection API: https://data.kingcounty.gov/Health/Food-Establishment-Inspection-Data/f29f-zza5#showMore
+  - Food Inspection API: [Seattle's Food Establishment Inspection Data](https://data.kingcounty.gov/Health/Food-Establishment-Inspection-Data/f29f-zza5#showMore)
  
  
   
